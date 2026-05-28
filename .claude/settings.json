@@ -1,0 +1,25 @@
+{
+  
+  "build": {
+    "command": "dotnet build",
+    "testCommand": "dotnet test",
+    "verbosity": "minimal"
+  },
+  "commands": {
+    "create-api": {
+      "file": ".claude/commands/create-api.md"
+    },
+    "quick-api": {
+      "file": ".claude/commands/quick-api.md"
+    }
+  },
+  "project": {
+    "name": "FantasyPremierLeague",
+    "type": "dotnet",
+    "solutionFile": "FantasyPremierLeague.sln",
+    "testProjects": [
+      "tests/UnitTests/UnitTests.csproj",
+      "tests/IntegrationTests/IntegrationTests.csproj"
+    ]
+  }
+}
