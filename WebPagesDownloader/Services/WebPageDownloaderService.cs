@@ -26,12 +26,10 @@ public class WebPageDownloaderService
         foreach (var chunk in urls.Chunk(_settings.ChunkSize))
         {
             var tasks = chunk.Select(url => DownloadSingleAsync(url, cancellationToken));
-
-            var results = await Task.WhenAll(tasks);
-
-            foreach (var result in results)
+                       
+            await foreach (var result in Task.WhenEach(tasks))
             {
-                yield return result;
+                yield return await result;
             }
         }
     }
